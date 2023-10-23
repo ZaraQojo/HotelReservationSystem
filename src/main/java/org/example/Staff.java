@@ -6,24 +6,23 @@ public class Staff extends User {
         super(userName, password);
     }
 
-    void checkGuestIn() {
-
+    static void checkGuestIn() {
     }
 
-    void checkGuestOut() {
+    static void checkGuestOut() {
         // set a room number to available and change guest details to make him as leave
     }
 
-    void makeReservation() {
+    static void makeReservation() {
         // add a reservation as a username and id and room number and arrival date and departure date
 
     }
 
-    void processPayment() {
+    static void processPayment() {
         // adding a payment method (maybe FastPay API)
     }
 
-    void viewAndUpdate() {
+    static void viewAndUpdate() {
         // it gets the guest ID and returns reservation information
     }
 

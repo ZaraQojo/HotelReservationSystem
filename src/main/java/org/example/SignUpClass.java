@@ -16,10 +16,15 @@ public class SignUpClass {
 
         acc.addNewAccount(username, password);
 
-        System.out.println("Account created successfully!");
+        System.out.println("Account created successfully!\n");
 
         // Call the login class to log the user in
         LoginClass.getData();
         LoginClass.login();
+        if (LoginClass.userName.startsWith("SS")) {
+            ViewClass.staffView();
+        } else if (LoginClass.userName.startsWith("AA")) {
+            ViewClass.adminView();
+        }  else ViewClass.guestView();
     }
 }

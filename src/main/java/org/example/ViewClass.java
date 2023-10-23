@@ -5,7 +5,10 @@ public class ViewClass {
         // calls guest view
     }
     static void staffView() {
-        // calls guest view
+        StaffView.showStaffView();
+    }
+    static void adminView() {
+        AdminView.showAdminView();
     }
 
 

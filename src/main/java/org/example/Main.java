@@ -10,9 +10,11 @@ public class Main {
         int pro = sc.nextInt();
         if (pro == 1) {
             if (LoginClass.login()) {
-                if (LoginClass.staffAccount()) {
+                if (LoginClass.userName.startsWith("SS")) {
                     ViewClass.staffView();
-                } else ViewClass.guestView();
+                } else if (LoginClass.userName.startsWith("AA")) {
+                    ViewClass.adminView();
+                }  else ViewClass.guestView();
             }
         } else if (pro == 2) {
             SignUpClass.signUp();

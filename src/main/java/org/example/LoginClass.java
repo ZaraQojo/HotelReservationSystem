@@ -8,7 +8,7 @@ public class LoginClass {
     static String pass;
 
     static void getData() {
-        System.out.println("Please Enter the User Name");
+        System.out.println("Welcome to the login page\n\nPlease Enter the User Name");
         userName = sc.next();
         System.out.println("Please Enter the Password");
         pass = sc.next();
@@ -32,14 +32,6 @@ public class LoginClass {
         return true;
     }
 
-    static boolean staffAccount() {
-        if (userName.charAt(0) == 'S' && userName.charAt(1) == 'S') {
-            return true;
-        } else
-            return false;
-
-
-    }
 }
 
 

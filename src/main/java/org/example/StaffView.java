@@ -4,14 +4,9 @@ import java.util.Scanner;
 
 public class StaffView {
 
-    Scanner sc = new Scanner(System.in);
-    private Staff staff;
+    static Scanner sc = new Scanner(System.in);
 
-    public StaffView(Staff staff) {
-        this.staff = staff;
-    }
-
-    public void showStaffView() {
+    public static void showStaffView() {
         // Display the staff view menu
         System.out.println("Staff View Menu:\n");
         System.out.println("1. Check guest in");
@@ -26,15 +21,15 @@ public class StaffView {
 
         // Call the appropriate method based on the user's selection
         if (selection == 1) {
-            staff.checkGuestIn();
+            Staff.checkGuestIn();
         } else if (selection == 2) {
-            staff.checkGuestOut();
+            Staff.checkGuestOut();
         } else if (selection == 3) {
-            staff.makeReservation();
+            Staff.makeReservation();
         } else if (selection == 4) {
-            staff.processPayment();
+            Staff.processPayment();
         } else if (selection == 5) {
-            staff.viewAndUpdate();
+            Staff.viewAndUpdate();
         } else if (selection == 6) {
             System.exit(0);
         } else {

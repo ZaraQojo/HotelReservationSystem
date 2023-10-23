@@ -4,7 +4,7 @@ import java.util.*;
 
 public class UserAccountDatabase {
 
-    private Map<String, String> userAccounts;
+    static Map<String, String> userAccounts;
 
     public UserAccountDatabase() {
         userAccounts = new HashMap<>();
@@ -14,7 +14,7 @@ public class UserAccountDatabase {
         return userAccounts.containsKey(username);
     }
 
-    public void addNewAccount(String username, String password) {
+    public static void addNewAccount(String username, String password) {
         userAccounts.put(username, password);
     }
 
