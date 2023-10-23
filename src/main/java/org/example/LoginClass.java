@@ -21,6 +21,7 @@ public class LoginClass {
         if (!acc.accountExists(userName)) {
             return false;
         }
+        Object square = null;
 
         // Check if the password is correct.
         String storedPassword = acc.getPassword(userName);
