@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class GuestView {
+public class GuestView extends Reservation {
     Scanner sc = new Scanner(System.in);
     private Guest guest;
 
@@ -27,6 +27,19 @@ public class GuestView {
                 break;
             case 2:
                 // View and manage reservations
+                System.out.println("Do you want to View Reservation or Mange Reservation");
+                System.out.println("To view Reservation, choose 1");
+                System.out.println("To manage Reservation, choose 2");
+                int option=sc.nextInt();
+                if(option==1){
+                    guest.viewReservation();
+
+                } else if (option==2) {
+                    guest.ManageReservation();
+                }
+                else {
+                    System.out.println("Invalid Input");
+                }
                 break;
             case 3:
                 // Check in
