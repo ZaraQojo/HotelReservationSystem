@@ -4,9 +4,17 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-public class Reservation {
+public class Reservation extends User {
+    public Reservation(String userName, String password) {
+        super(userName, password);
+    }
+
+    public Reservation() {
+        super();
+    }
     public void reservation(){
         int choice;
+
         Scanner choices=new Scanner(System.in);
         do {
             System.out.println("Choose an option to continue with the reservation system");
@@ -58,5 +66,38 @@ public class Reservation {
             default:
                 System.out.println("Invalid Option");
         }
+    }
+    int RoomNumber=0;
+    public void viewReservation() {
+
+        User userViewReservation=new User();
+        System.out.println("Reservation Details:");
+        System.out.println(userViewReservation.getId() + ": Guest Name: " + userViewReservation.getUserName());
+        System.out.println("Room Number: " + RoomNumber++);
+        System.out.println("Check-In Date: " +ArrivalDateTime.getArrivalDate()+ArrivalDateTime.getArrivalTime());
+        System.out.println("Check-Out Date: " + DepartureDateTime.getDepartureDate()+DepartureDateTime.getDepartureTime());
+
+    }
+    public void manageReservationall(LocalDate newCheckInDate, LocalTime newCheckInTime,LocalDate newCheckOutDate, LocalTime newCheckOutTime){
+        LocalDate arrivalDate = ArrivalDateTime.getArrivalDate();
+        newCheckInDate=arrivalDate;
+        LocalTime arrivalTime = ArrivalDateTime.getArrivalTime();
+        newCheckInTime=arrivalTime;
+        LocalDate departureDate = DepartureDateTime.getDepartureDate();
+        newCheckOutDate=departureDate;
+        LocalTime departureTime = DepartureDateTime.getDepartureTime();
+        newCheckOutTime=departureTime;
+    }
+    public void manageReservationCheckIn(LocalDate newCheckInDate, LocalTime newCheckInTime){
+        LocalDate arrivalDate = ArrivalDateTime.getArrivalDate();
+        newCheckInDate=arrivalDate;
+        LocalTime arrivalTime = ArrivalDateTime.getArrivalTime();
+        newCheckInTime=arrivalTime;
+    }
+    public void manageReservationCheckOut(LocalDate newCheckOutDate, LocalTime newCheckOutTime){
+        LocalDate departureDate = DepartureDateTime.getDepartureDate();
+        newCheckOutDate=departureDate;
+        LocalTime departureTime = DepartureDateTime.getDepartureTime();
+        newCheckOutTime=departureTime;
     }
 }
