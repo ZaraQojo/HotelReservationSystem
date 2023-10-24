@@ -1,5 +1,7 @@
 package org.example;
 
+// TODO: Test Wrong Parameters (Test-List)
+
 import java.util.Scanner;
 
 public class SignUpClass {
@@ -28,3 +30,5 @@ public class SignUpClass {
         }  else ViewClass.guestView();
     }
 }
+
+

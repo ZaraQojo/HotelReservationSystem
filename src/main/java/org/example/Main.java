@@ -1,5 +1,9 @@
 package org.example;
 
+// TODO: Test Wrong Parameters (Test-List) - Study Socket Adding for the project
+// TODO: Adding JAR Files to import
+
+
 import java.util.*;
 
 public class Main {
@@ -14,7 +18,7 @@ public class Main {
                     ViewClass.staffView();
                 } else if (LoginClass.userName.startsWith("AA")) {
                     ViewClass.adminView();
-                }  else ViewClass.guestView();
+                } else ViewClass.guestView();
             }
         } else if (pro == 2) {
             SignUpClass.signUp();
@@ -23,6 +27,4 @@ public class Main {
 
 
     }
-    // this is a comment Hi Marsel
-
 }

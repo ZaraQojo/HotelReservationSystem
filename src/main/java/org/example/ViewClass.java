@@ -2,7 +2,7 @@ package org.example;
 
 public class ViewClass {
     static void guestView() {
-        // calls guest view
+        // TODO: add guest view
     }
     static void staffView() {
         StaffView.showStaffView();

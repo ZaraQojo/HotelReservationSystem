@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class LoginClass {
     static Scanner sc = new Scanner(System.in);
     static String userName;
+
+    // TODO: Test Wrong Parameters (Test-List) - Study Socket Adding for the project
+
     static String pass;
 
     static void getData() {
