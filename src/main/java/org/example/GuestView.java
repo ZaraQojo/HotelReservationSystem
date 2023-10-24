@@ -13,9 +13,7 @@ public class GuestView extends Reservation {
         System.out.println("Guest View Menu:");
         System.out.println("1. Make a reservation");
         System.out.println("2. View and manage reservations");
-        System.out.println("3. Check in");
-        System.out.println("4. Check out");
-        System.out.println("5. Exit");
+        System.out.println("3. Exit");
 
         // Get the user's selection
         int selection = sc.nextInt();
@@ -41,13 +39,8 @@ public class GuestView extends Reservation {
                     System.out.println("Invalid Input");
                 }
                 break;
+
             case 3:
-                // Check in
-                break;
-            case 4:
-                // Check out
-                break;
-            case 5:
                 System.exit(0);
             default:
                 System.out.println("Invalid selection");

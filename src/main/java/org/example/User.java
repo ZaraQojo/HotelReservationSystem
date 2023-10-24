@@ -1,6 +1,10 @@
 package org.example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class User {
+
+    ObjectMapper mapper=new ObjectMapper();
     private static int id = 0; // id counter
     private int userID; // user id
     private String userName;
@@ -13,6 +17,10 @@ public class User {
         this.userID= id;
         this.userName = userName;
         this.password = password;
+    }
+
+    public User() {
+
     }
 
     public int getId() {
