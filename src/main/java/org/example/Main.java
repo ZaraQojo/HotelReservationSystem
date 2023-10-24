@@ -2,6 +2,7 @@ package org.example;
 
 // TODO: Test Wrong Parameters (Test-List) - Study Socket Adding for the project
 // TODO: Adding JAR Files to import
+// TODO: Check Ayan Pull-Request
 
 
 import java.util.*;
@@ -28,3 +29,7 @@ public class Main {
 
     }
 }
+
+
+// TODO: Check Static and non-Static Usage
+// TODO: Check the need of call by Class or Call by Objects

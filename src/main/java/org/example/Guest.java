@@ -7,16 +7,14 @@ import java.util.Scanner;
 
 public class Guest extends User {
     public Guest(String userName, String password) {
+
         super(userName, password);
     }
 
     Reservation res = new Reservation();
 
     public void GuestReservation() {
-
-
         res.reservation();
-
     }
 
     public void viewReservation() {
@@ -64,9 +62,5 @@ public class Guest extends User {
         } else {
             System.out.println("Ivalid Option");
         }
-
-
     }
-
-
 }
