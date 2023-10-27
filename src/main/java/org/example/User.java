@@ -1,46 +1,25 @@
 package org.example;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class User {
-
-    ObjectMapper mapper=new ObjectMapper();
-    private static int id = 0; // id counter
-    private int userID; // user id
-    private String userName;
+    private String username;
     private String password;
-    private String name;
+    private String role;
 
-
-    public User(String userName, String password) {
-        id++ ;
-        this.userID= id;
-        this.userName = userName;
+    public User(String username, String password, String role) {
+        this.username = username;
         this.password = password;
+        this.role = role;
     }
 
-    public User() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getRole() {
+        return role;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }
