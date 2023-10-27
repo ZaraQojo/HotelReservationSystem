@@ -32,3 +32,4 @@ public class SignUpClass {
 }
 
 
+// map between id and type
