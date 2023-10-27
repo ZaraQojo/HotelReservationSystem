@@ -7,7 +7,6 @@ import org.example.Controller.ReservationController;
 import org.example.Model.GuestModel;
 import org.example.Model.ReceptionistModel;
 import org.example.Model.ReservationModel;
-
 import org.example.View.GuestView;
 import org.example.View.LoginView;
 import org.example.View.ReceptionistView;
@@ -39,10 +38,7 @@ public class Main {
         LoginController loginController = new LoginController(loginView);
         GuestController guestController = new GuestController(guestView, guestModel);
         ReceptionistController receptionistController = new ReceptionistController(receptionistView, receptionistModel, reservationModel);
-        ReservationController reservationController = new ReservationController(reservationView, reservationModel, room);
-
         // Start the program
-        Scanner scanner = new Scanner(System.in);
         int currentState = LOGIN_STATE;
         User currentUser = null;
 
