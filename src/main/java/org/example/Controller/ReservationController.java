@@ -46,10 +46,10 @@ public class ReservationController {
         }
     }
 
-    private void makeReservation() {
+    public void makeReservation() {
         String roomType = reservationView.getRoomType();
         String guestName = reservationView.getGuestName();
-        reservationModel.makeReservation(roomType, guestName);
+        reservationModel.makeReservation(roomType, guestName); // This line was changed
     }
 
     private void cancelReservation() {

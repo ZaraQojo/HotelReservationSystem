@@ -10,7 +10,7 @@ public class ReceptionistModel {
 
     private Map<String, String> checkedInGuests;
     private Room room;
-    private static final String CHECKED_IN_FILE_PATH = "checkedin.json";
+    private static final String CHECKED_IN_FILE_PATH = "checkin.json";
 
     public ReceptionistModel(Room room) {
         this.checkedInGuests = new HashMap<>();

@@ -27,7 +27,9 @@ public class LoginView {
         System.out.print("Enter your password: ");
         return scanner.nextLine();
     }
-
+    public void displayLoginError() {
+        System.out.println("Login failed. Please try again.");
+    }
     public void displayMessage(String message) {
         System.out.println(message);
     }

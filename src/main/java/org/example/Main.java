@@ -12,6 +12,7 @@ import org.example.View.LoginView;
 import org.example.View.ReceptionistView;
 import org.example.View.ReservationView;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
     private static final int RECEPTIONIST_STATE = 3;
     private static final int EXIT_STATE = 4;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Initialize models
         Room room = new Room();
         GuestModel guestModel = new GuestModel(room);
