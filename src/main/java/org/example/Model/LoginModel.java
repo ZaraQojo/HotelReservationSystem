@@ -1,36 +1,61 @@
 package org.example.Model;
+
 import org.example.User;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
 
 public class LoginModel {
 
     private List<User> users;
-    private static final String DATA_FILE_PATH = "userdata.json";
+    private static final String DATA_FILE_PATH = "src/main/java/org/example/Model/userdata.json";
 
-    public LoginModel() {
+    public LoginModel() throws IOException {
         this.users = new ArrayList<>();
         loadDataFromFile();
     }
 
-    private void loadDataFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE_PATH))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    String username = parts[0].trim();
-                    String password = parts[1].trim();
-                    String role = parts[2].trim();
-                    users.add(new User(username, password, role));
+
+    private void loadDataFromFile() throws IOException {
+        List<User> users = new ArrayList<>();
+
+        BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE_PATH));
+        StringBuilder jsonString = new StringBuilder();
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            jsonString.append(line);
+        }
+
+        StringTokenizer tokenizer = new StringTokenizer(jsonString.toString(), "{},[]:\"", true);
+
+        while (tokenizer.hasMoreTokens()) {
+            String token = tokenizer.nextToken().trim();
+
+            if (token.equals("{")) {
+                User user = new User();
+
+                while (tokenizer.hasMoreTokens()) {
+                    String key = tokenizer.nextToken().trim();
+                    String value = tokenizer.nextToken().trim();
+
+                    switch (key) {
+                        case "username" -> user.setUsername(value);
+                        case "password" -> user.setPassword(value);
+                        case "role" -> user.setRole(value);
+                    }
+
+                    if (tokenizer.nextToken().equals("}")) {
+                        users.add(user);
+                        break;
+                    }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        reader.close();
     }
+
 
     private void saveDataToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE_PATH))) {

@@ -46,7 +46,7 @@ public class Main {
         while (currentState != EXIT_STATE) {
             switch (currentState) {
                 case LOGIN_STATE:
-                    currentUser = loginController.startLoginProcess();
+                //    currentUser = loginController.startLoginProcess();
                     if (currentUser == null) {
                         System.out.println("Login failed. Please try again.");
                         continue;

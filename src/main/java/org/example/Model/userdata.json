@@ -1,0 +1,27 @@
+[
+  {
+    "username": "zara",
+    "password": "zara",
+    "role": "guest"
+  },
+  {
+    "username": "alice_smith",
+    "password": "pass456",
+    "role": "guest"
+  },
+  {
+    "username": "bob_johnson",
+    "password": "secretPass",
+    "role": "admin"
+  },
+  {
+    "username": "susan_wilson",
+    "password": "myP@ssw0rd",
+    "role": "guest"
+  },
+  {
+    "username": "james_davis",
+    "password": "securePass123",
+    "role": "guest"
+  }
+]

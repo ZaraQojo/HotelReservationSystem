@@ -13,6 +13,7 @@ public class GuestView {
     public void displayWelcomeMessage() {
         System.out.println("Welcome to the Guest System!");
     }
+
     public void displayWelcomeMessage(String s) {
         System.out.println(s);
     }

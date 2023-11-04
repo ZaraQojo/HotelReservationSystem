@@ -22,26 +22,16 @@ public class ReservationController {
             int choice = reservationView.getChoice();
 
             switch (choice) {
-                case 1:
-                    makeReservation();
-                    break;
-                case 2:
-                    cancelReservation();
-                    break;
-                case 3:
-                    viewReservations();
-                    break;
-                case 4:
-                    viewAvailableRooms();
-                    break;
-                case 5:
-                    viewReservedRooms();
-                    break;
-                case 6:
+                case 1 -> makeReservation();
+                case 2 -> cancelReservation();
+                case 3 -> viewReservations();
+                case 4 -> viewAvailableRooms();
+                case 5 -> viewReservedRooms();
+                case 6 -> {
                     reservationView.displayMessage("Exiting the Reservation System.");
                     return;
-                default:
-                    reservationView.displayMessage("Invalid choice. Please try again.");
+                }
+                default -> reservationView.displayMessage("Invalid choice. Please try again.");
             }
         }
     }
