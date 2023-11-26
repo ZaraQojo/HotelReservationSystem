@@ -1,50 +1,56 @@
 package org.example;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
+import java.util.Map;
 
 public class HotelReservationSystemClient {
 
-    private Socket clientSocket; // TODO: Check if we can make this Final
+    private Socket clientSocket;
 
-    public HotelReservationSystemClient() throws IOException {
-        try {
-            clientSocket = new Socket("localhost", 9000);
-        } catch (IOException e) {
-            System.out.println("The server is off: " + e.getMessage());
-            System.out.println("Please start the server and try again.");
-            System.exit(1);
+    public HotelReservationSystemClient() {
+    }
+
+    public void connectToServer() throws IOException {
+        this.clientSocket = new Socket("127.0.0.1", 8000);
+    }
+
+    public void handleViewRequest(String viewName, Map<String, Object> parameters) throws IOException {
+        String jsonData = prepareJSONData(viewName, parameters);
+        sendJSONToServer(jsonData);
+    }
+
+    private String prepareJSONData(String viewName, Map<String, Object> parameters) {
+        StringBuilder jsonDataBuilder = new StringBuilder();
+        jsonDataBuilder.append("{");
+        jsonDataBuilder.append("\"viewName\": \"").append(viewName).append("\",");
+        jsonDataBuilder.append("\"parameters\": {");
+
+        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
+            jsonDataBuilder.append("\"");
+            jsonDataBuilder.append(entry.getKey());
+            jsonDataBuilder.append("\": ");
+
+            if (entry.getValue() instanceof String) {
+                jsonDataBuilder.append("\"");
+                jsonDataBuilder.append(entry.getValue());
+                jsonDataBuilder.append("\"");
+            } else {
+                jsonDataBuilder.append(entry.getValue());
+            }
+
+            jsonDataBuilder.append(",");
         }
+
+        jsonDataBuilder.append("}");
+        jsonDataBuilder.append("}");
+
+        return jsonDataBuilder.toString();
     }
 
-    public void sendRequest(String requestMessage) throws IOException {
-        byte[] requestBytes = requestMessage.getBytes();
-        clientSocket.getOutputStream().write(requestBytes);
-    }
-
-    public String receiveResponse() throws IOException {
-        byte[] responseBytes = new byte[1024];
-        int bytesRead = clientSocket.getInputStream().read(responseBytes);
-
-        return new String(responseBytes, 0, bytesRead);
-    }
-
-    public void close() throws IOException {
-        clientSocket.close();
-    }
-
-    public static void main(String[] args) throws IOException {
-        HotelReservationSystemClient client = new HotelReservationSystemClient();
-
-        String requestMessage = "dummy request";
-        client.sendRequest(requestMessage);
-
-        String responseMessage = client.receiveResponse();         // Receive the response from the server.
-
-        // TODO: Parse the response message and display the response information to the user.
-
-        client.close();
+    private void sendJSONToServer(String jsonData) throws IOException {
+        OutputStream outputStream = clientSocket.getOutputStream();
+        byte[] jsonDataBytes = jsonData.getBytes();
+        outputStream.write(jsonDataBytes);
     }
 }

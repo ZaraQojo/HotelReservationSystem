@@ -43,30 +43,11 @@ public class Main {
         int currentState = LOGIN_STATE;
         User currentUser = null;
 
-        while (currentState != EXIT_STATE) {
-            switch (currentState) {
-                case LOGIN_STATE:
-                //    currentUser = loginController.startLoginProcess();
-                    if (currentUser == null) {
-                        System.out.println("Login failed. Please try again.");
-                        continue;
-                    }
+        while (true) {
+            //    currentUser = loginController.startLoginProcess();
+            System.out.println("Login failed. Please try again.");
+            continue;
 
-                    currentState = (currentUser.getRole().equals("Guest")) ? GUEST_STATE : RECEPTIONIST_STATE;
-                    break;
-                case GUEST_STATE:
-                    guestController.startGuestProcess(currentUser);
-                    currentState = LOGIN_STATE;
-                    break;
-                case RECEPTIONIST_STATE:
-                    receptionistController.startReceptionistProcess(currentUser);
-                    currentState = LOGIN_STATE;
-                    break;
-                default:
-                    System.out.println("Invalid state. Exiting the Hotel Reservation System.");
-                    System.exit(1);
-            }
         }
-        System.out.println("Exiting the Hotel Reservation System.");
     }
 }
