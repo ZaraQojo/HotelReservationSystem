@@ -22,6 +22,7 @@ public class MainView {
             System.out.println("2. Check my reservations");
             System.out.println("3. Cancel a reservation");
             System.out.println("4. Exit");
+            System.out.println("5. View available rooms and make a reservation");
 
             int option = scanner.nextInt();
 
@@ -60,6 +61,29 @@ public class MainView {
                     System.exit(0);
                     break;
 
+                case 5:
+                    // View available rooms and make a reservation
+                    System.out.println("Viewing available rooms...");
+
+                    // Send request to the controller to get available rooms
+                    controller.processRequest("VIEW_AVAILABLE_ROOMS");
+
+                    // Display available rooms
+                    System.out.println("Available Rooms:");
+                    // Assuming the controller returns a list of available rooms, you can iterate through them
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println(i + ". Room " + i);
+                    }
+
+                    // Ask the user to select a room
+                    System.out.println("Select a room to make a reservation:");
+                    int selectedRoom = scanner.nextInt();
+                    System.out.println("Processing reservation...");
+
+                    // Send selected room to the controller to make a reservation
+                    controller.processRequest("MAKE_RESERVATION" + selectedRoom);
+                    break;
+
                 default:
                     System.out.println("Invalid option. Please select a valid option.");
             }
@@ -67,10 +91,12 @@ public class MainView {
     }
 
     public void displayResponse(String response) {
+
         System.out.println(response);
     }
 
     public void displayError(String message) {
+
         System.err.println("Error: " + message);
     }
 }
